@@ -114,7 +114,7 @@ public class RenderGapingVoid<T extends EntityGapingVoid> extends EntityRenderer
 		double life = age / 186.0D;
 		double f = Math.max(0.0D, (life - 0.95D) / 0.050000000000000044D);
 		f = Math.max(f, 1.0D - life * 30.0D);
-		return new Color((float) f, (float) f, (float) f, 1.0F);
+		return new Color(Math.min((float) f, 1.0F), Math.min((float) f, 1.0F), Math.min((float) f, 1.0F), 1.0F);
 	}
 
 	@Override

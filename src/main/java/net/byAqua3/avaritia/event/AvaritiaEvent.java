@@ -91,10 +91,12 @@ public class AvaritiaEvent {
 		PlayerList playerList = server.getPlayerList();
 		List<ServerPlayer> players = playerList.getPlayers();
 
-		List<BlockSwapper> blockSwappers = List.copyOf(ItemInfinityAxe.BlockSwappers);
-		ItemInfinityAxe.BlockSwappers.clear();
-		for (BlockSwapper blockSwapper : blockSwappers) {
-			blockSwapper.tick();
+		if (!ItemInfinityAxe.BlockSwappers.isEmpty()) {
+			List<BlockSwapper> blockSwappers = List.copyOf(ItemInfinityAxe.BlockSwappers);
+			ItemInfinityAxe.BlockSwappers.clear();
+			for (BlockSwapper blockSwapper : blockSwappers) {
+				blockSwapper.tick();
+			}
 		}
 
 		for (ServerPlayer player : players) {

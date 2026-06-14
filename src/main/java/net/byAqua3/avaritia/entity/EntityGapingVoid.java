@@ -226,10 +226,10 @@ public class EntityGapingVoid extends Entity {
 						BlockPos blockPos = new BlockPos(Mth.floor(rPos.x), Mth.floor(rPos.y), Mth.floor(rPos.z));
 						BlockState blockState = this.level().getBlockState(blockPos);
 						Block block = blockState.getBlock();
-						double dist = Math.sqrt(pos2.x * pos2.x + pos2.y * pos2.y + pos2.z * pos2.z);
-						if (dist <= attackRange && !blockState.isAir()) {
-							float resist = block.getExplosionResistance();
-							if (resist <= 10.0F) {
+						double distance = Math.sqrt(pos2.x * pos2.x + pos2.y * pos2.y + pos2.z * pos2.z);
+						if (distance <= attackRange && !blockState.isAir()) {
+							float resistance = block.getExplosionResistance();
+							if (resistance <= 10.0F) {
 								if (!this.level().isClientSide()) {
 									List<ItemStack> drops = new ArrayList<>();
 									List<ItemStack> blockDrops = Block.getDrops(blockState, (ServerLevel) this.level(), blockPos, null);
@@ -263,9 +263,9 @@ public class EntityGapingVoid extends Entity {
 		}
 
 		if (age >= MAX_LIFETIME) {
+			this.setAge(0);
 			if (!this.level().isClientSide()) {
 				this.level().explode(this, this.getX(), this.getY(), this.getZ(), 6.0F, false, Level.ExplosionInteraction.BLOCK);
-				this.setAge(0);
 				this.remove(RemovalReason.KILLED);
 			}
 		}

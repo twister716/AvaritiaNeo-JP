@@ -96,6 +96,5 @@ public class CategoryExtremeRecipe implements DisplayCategory<DisplayExtremeReci
 		widgets.addAll(inputSlots);
 		widgets.add(Widgets.createSlot(new Point(startPoint.getX() + rectangle.getWidth() - 25, rectangle.getCenterY() - 8)).entries(display.getOutputEntries().get(0)).disableBackground().markOutput());
 		return widgets;
-
 	}
 }

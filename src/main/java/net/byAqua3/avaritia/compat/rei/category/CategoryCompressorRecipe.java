@@ -71,5 +71,4 @@ public class CategoryCompressorRecipe implements DisplayCategory<DisplayCompress
 		widgets.add(Widgets.createSlot(new Point(startPoint.getX() + 12, rectangle.getCenterY() - 11)).disableBackground().entries(display.getInputEntries().get(0)).markInput());
 		widgets.add(Widgets.createSlot(new Point(startPoint.getX() + rectangle.getWidth() - 30, rectangle.getCenterY() - 11)).entries(display.getOutputEntries().get(0)).disableBackground().markOutput());
 		return widgets;
-
 	}}
